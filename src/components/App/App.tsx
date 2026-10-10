@@ -44,11 +44,13 @@ const App = () => {
         onReset={resetVotes}
         canReset={totalVotes > 0}
       ></VoteOptions>
-      <VoteStats
-        votes={votes}
-        totalVotes={totalVotes}
-        positiveRate={positiveRate}
-      ></VoteStats>
+      {totalVotes > 0 && (
+        <VoteStats
+          votes={votes}
+          totalVotes={totalVotes}
+          positiveRate={positiveRate}
+        ></VoteStats>
+      )}
       {totalVotes === 0 && <Notification></Notification>}
     </div>
   );

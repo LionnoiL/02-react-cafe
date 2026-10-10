@@ -1,9 +1,9 @@
 import css from './VoteOptions.module.css';
-import type { handleVoteFunction, resetVotesFunction } from '../App/App';
+import type { VoteType } from '../../types/votes';
 
 interface VoteOptionsProps {
-  onVote: handleVoteFunction;
-  onReset: resetVotesFunction;
+  onVote: (type: VoteType) => void;
+  onReset: () => void;
   canReset: boolean;
 }
 
