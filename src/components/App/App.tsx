@@ -3,6 +3,7 @@ import { useState } from 'react';
 import CafeInfo from '../CafeInfo/CafeInfo';
 import VoteOptions from '../VoteOptions/VoteOptions';
 import css from './App.module.css';
+import VoteStats from '../VoteStats/VoteStats';
 
 export type handleVoteFunction = (type: VoteType) => void;
 export type resetVotesFunction = () => void;
@@ -37,6 +38,7 @@ const App = () => {
         onReset={resetVotes}
         canReset={true}
       ></VoteOptions>
+      <VoteStats votes={votes} totalVotes={0} positiveRate={0}></VoteStats>
     </div>
   );
 };
