@@ -19,12 +19,11 @@ const VoteOptions = ({ onVote, onReset, canReset }: VoteOptionsProps) => {
       <button className={css.button} onClick={() => onVote('bad')}>
         Bad
       </button>
-      <button
-        className={`${css.button} ${css.reset}`}
-        onClick={canReset ? onReset : undefined}
-      >
-        Reset
-      </button>
+      {canReset && (
+        <button className={`${css.button} ${css.reset}`} onClick={onReset}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };

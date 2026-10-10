@@ -4,6 +4,7 @@ import CafeInfo from '../CafeInfo/CafeInfo';
 import VoteOptions from '../VoteOptions/VoteOptions';
 import css from './App.module.css';
 import VoteStats from '../VoteStats/VoteStats';
+import Notification from '../Notification/Notification';
 
 export type handleVoteFunction = (type: VoteType) => void;
 export type resetVotesFunction = () => void;
@@ -41,13 +42,14 @@ const App = () => {
       <VoteOptions
         onVote={handleVote}
         onReset={resetVotes}
-        canReset={true}
+        canReset={totalVotes > 0}
       ></VoteOptions>
       <VoteStats
         votes={votes}
         totalVotes={totalVotes}
         positiveRate={positiveRate}
       ></VoteStats>
+      {totalVotes === 0 && <Notification></Notification>}
     </div>
   );
 };
